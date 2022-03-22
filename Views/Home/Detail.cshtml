@@ -1,0 +1,27 @@
+@using AspNetFilmApp.Models
+@model List<Films>
+
+@{
+     ViewData["Title"] = "Detail";
+}
+@foreach (var item in Model)
+{
+     <div class="card mb-3">
+          <div class="row g-0">
+
+               <img src="@item.LinkImg" class="col-md-5 my-2" alt="...">
+               <div class="col-md-7">
+                    <div class="card-body">
+                         <h5 class="card-title">@item.Judul</h5>
+                         <p class="card-text">Jenis Film: @item.Genre</p>
+                         <p class="card-text">Sutradara: @item.Sutradara</p>
+                         <p class="card-text">Aktor Pemeran: @item.Aktor</p>
+                         <p class="card-text">Durasi Film: @item.Durasi</p>
+                         <p class="card-text">Rating usia Film: @item.RatingUsia</p>
+                         <h5>Sinopsis</h5>
+                         <p class="card-text">@item.Sinopsis</p>
+                    </div>
+               </div>
+          </div>
+     </div>
+}

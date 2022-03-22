@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<AspNetFilmApp.Models.Films>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <a href="/home/detail/@item.Judul">
+                <div class="card">
+                    <img src="@item.LinkImg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@item.Judul</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
 </div>
