@@ -12,6 +12,7 @@ class Films
      public string LinkImg { get; set; }
      private float _rating { get; set; }
      public string LinkTrailer {get; set;}
+     public DateTime TglTayang {get; set;}
 
      public Films(string judul, string sutradara, string aktor, string sinopsis, string durasi, string ratingUsia, string genre)
      {

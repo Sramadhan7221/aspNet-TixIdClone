@@ -1,4 +1,27 @@
 ﻿@model IEnumerable<AspNetFilmApp.Models.Films>
+@{
+    DateTime today = new DateTime(2022, 03, 23);
+}
+<h3 class="card-header text-center my-3">Tayang Hari Ini</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    @foreach (var item in Model)
+    {
+        @if (item.TglTayang == today)
+        {
+            <div class="col">
+                <a href="/home/detail/@item.Judul">
+                    <div class="card">
+                        <img src="@item.LinkImg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">@item.Judul</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    }
+</div>
+<h3 class="card-header my-2">Daftar Film</h3>
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
     @foreach (var item in Model)
     {
