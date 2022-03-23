@@ -7,6 +7,19 @@ a.navbar-brand[b-v3wi6p66kn] {
   word-break: break-all;
 }
 
+a.navbar-link[b-v3wi6p66kn] {
+  color: #f1faee!important;
+}
+
+.navbar[b-v3wi6p66kn] {
+  background-color: #e63946!important;
+
+}
+.brand[b-v3wi6p66kn] {
+  font-family: 'Cormorant Garamond',
+  serif!important;
+  color: #f1faee !important;
+}
 a[b-v3wi6p66kn] {
   color: #0077cc;
 }

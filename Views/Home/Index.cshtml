@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<AspNetFilmApp.Models.Films>
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
     @foreach (var item in Model)
     {
         <div class="col">
@@ -8,7 +7,7 @@
                 <div class="card">
                     <img src="@item.LinkImg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-center">@item.Judul</h5>
+                        <h3 class="card-title text-center">@item.Judul</h3>
                     </div>
                 </div>
             </a>

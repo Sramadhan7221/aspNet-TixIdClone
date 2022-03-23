@@ -12,7 +12,7 @@
                <img src="@item.LinkImg" class="col-md-5 my-2" alt="...">
                <div class="col-md-7">
                     <div class="card-body">
-                         <h5 class="card-title">@item.Judul</h5>
+                         <h3 class="card-title">@item.Judul</h3>
                          <p class="card-text">Jenis Film: @item.Genre</p>
                          <p class="card-text">Sutradara: @item.Sutradara</p>
                          <p class="card-text">Aktor Pemeran: @item.Aktor</p>
@@ -20,6 +20,12 @@
                          <p class="card-text">Rating usia Film: @item.RatingUsia</p>
                          <h5>Sinopsis</h5>
                          <p class="card-text">@item.Sinopsis</p>
+                         <p class="card-title">Trailer</p>
+                         <iframe width="560" height="315" src="@item.LinkTrailer" title="YouTube video player"
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen>
+                         </iframe>
                     </div>
                </div>
           </div>

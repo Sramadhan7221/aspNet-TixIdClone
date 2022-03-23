@@ -4,7 +4,7 @@ class Bioskop
 {
      public int Id {get; set;}
      public string NamaBioskop {get; set;}
-     public List<KelasBioskop> Kelas {get; set;}
+     public KelasBioskop Kelas {get; set;}
      public string Alamat {get; set;}
      public Bioskop(int id, string namaBioskop, string alamat)
      {
@@ -17,7 +17,7 @@ class Bioskop
           Alamat = alamat;
      }
 
-     public void KelasTersedia (List<KelasBioskop> kelas){
+     public void KelasTersedia (KelasBioskop kelas){
           Kelas = kelas;
      }
 }

@@ -7,6 +7,19 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+a.navbar-link {
+  color: #f1faee!important;
+}
+
+.navbar {
+  background-color: #e63946!important;
+
+}
+.brand {
+  font-family: 'Cormorant Garamond',
+  serif!important;
+  color: #f1faee !important;
+}
 a {
   color: #0077cc;
 }

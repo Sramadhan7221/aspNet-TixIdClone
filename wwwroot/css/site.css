@@ -15,4 +15,13 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #a8dadc;
+}
+
+.card-title {
+  color: #1d3557!important;
+}
+
+a {
+  text-decoration: none!important;
 }
