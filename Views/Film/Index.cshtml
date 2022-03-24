@@ -1,0 +1,86 @@
+@model IEnumerable<AspNetFilmApp.Models.FilmViewModel>
+
+@{
+     ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+     <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+     <thead>
+          <tr>
+               <th>
+                    @Html.DisplayNameFor(model => model.Judul)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.Sutradara)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.Aktor)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.Sinopsis)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.Durasi)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.RatingUsia)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.LinkImg)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.LinkTrailer)
+               </th>
+               <th>
+                    @Html.DisplayNameFor(model => model.LinkTrailer)
+               </th>
+               <th></th>
+          </tr>
+     </thead>
+     <tbody>
+          @foreach (var item in Model)
+          {
+               <tr>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Judul)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Sutradara)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Aktor)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Sinopsis)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Durasi)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.RatingUsia)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Genre)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.LinkImg)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.LinkTrailer)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.LinkTrailer)
+                    </th>
+                    <th></th>
+               </tr>
+          }
+     </tbody>
+</table>

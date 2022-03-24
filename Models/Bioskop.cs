@@ -16,8 +16,4 @@ class Bioskop
           NamaBioskop = namaBioskop;
           Alamat = alamat;
      }
-
-     public void KelasTersedia (KelasBioskop kelas){
-          Kelas = kelas;
-     }
 }
