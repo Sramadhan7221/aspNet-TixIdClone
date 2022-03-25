@@ -2,6 +2,7 @@
 
 @{
    ViewData["Title"] = "Create";
+   Layout = "_LayoutHome";
 }
 
 <h1> Create </h1>
@@ -40,7 +41,7 @@
 
             <label asp-for="Aktor" class="control-label"></label>
 
-            <input asp-for="Aktor" class="form-control" />
+            <textarea asp-for="Aktor" class="form-control" row="5"></textarea>
 
             <span asp-validation-for="Aktor" class="text-danger"></span>
 

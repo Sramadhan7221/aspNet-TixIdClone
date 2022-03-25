@@ -11,8 +11,8 @@ public class HomeController : Controller
 
      public HomeController(ILogger<HomeController> logger)
      {
-        _logger = logger;
-        _listFilm = new List<FilmViewModel>(){
+          _logger = logger;
+          _listFilm = new List<FilmViewModel>(){
             new FilmViewModel("Ambulance(IMAX 2D)","Michael Bay","Jake Gyllenhaal, Yahya Abdul-Mateen II, Eiza Gonzalez, Garret Dillahunt, Devan Chandler Long, A Martinez, Andy Favreau ","Dua perampok membajak mobil ambulance setelah aksi perampokan mereka tidak berjalan sesuai rencana.","136","D17+"," Action, Crime, Drama"){
                 LinkImg = "https://media.21cineplex.com/webcontent/gallery/pictures/16474029723916_287x421.jpg",
                 LinkTrailer = "https://www.youtube.com/embed/Fq_GiUYSwUE",
@@ -50,9 +50,9 @@ public class HomeController : Controller
 
      public IActionResult Index()
      {
-        ViewData["ListFilm"] = _listFilm;
-        ViewBag.ListFilm = _listFilm;
-        return View(_listFilm);
+          ViewData["ListFilm"] = _listFilm;
+          ViewBag.ListFilm = _listFilm;
+          return View(_listFilm);
      }
 
 
@@ -62,16 +62,16 @@ public class HomeController : Controller
      /// </summary>
      /// <param name="username">id of user</param>
      /// <returns></returns>
-    //  [Route("home/detail/{judul}")]
+     [Route("home/detail/{judul}")]
 
      public IActionResult Detail(string judul)
      {
-        if(string.IsNullOrEmpty(judul))
-            return View(new List<FilmViewModel>());
+          if (string.IsNullOrEmpty(judul))
+               return View(new List<FilmViewModel>());
           //  get data from film list by judul
-        var data = _listFilm.Where(x => x.Judul != null && x != null && x.Judul.Contains(judul, StringComparison.OrdinalIgnoreCase)).ToList();
+          var data = _listFilm.Where(x => x.Judul != null && x != null && x.Judul.Contains(judul, StringComparison.OrdinalIgnoreCase)).ToList();
 
-        return View(data);
+          return View(data);
      }
      public IActionResult Privacy()
      {

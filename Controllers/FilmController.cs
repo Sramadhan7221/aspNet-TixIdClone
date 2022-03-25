@@ -9,9 +9,11 @@ namespace AspNetFilmApp.Controllers
      {
           List<FilmViewModel> _listFilm = new List<FilmViewModel>();
           private readonly IFilmService _filmService;
-          public FilmController(IFilmService filmService)
+          private readonly IFileService _fileService;
+          public FilmController(IFilmService filmService, IFileService fileService)
           {
                _filmService = filmService;
+               _fileService = fileService;
                _listFilm = new List<FilmViewModel>(){
                     new FilmViewModel("Ambulance(IMAX 2D)","Michael Bay","Jake Gyllenhaal, Yahya Abdul-Mateen II, Eiza Gonzalez, Garret Dillahunt, Devan Chandler Long, A Martinez, Andy Favreau ","Dua perampok membajak mobil ambulance setelah aksi perampokan mereka tidak berjalan sesuai rencana.","136","D17+"," Action, Crime, Drama"){
                     LinkImg = "https://media.21cineplex.com/webcontent/gallery/pictures/16474029723916_287x421.jpg",
@@ -48,10 +50,17 @@ namespace AspNetFilmApp.Controllers
           };
           }
           // GET: FilmController
-          public ActionResult Index()
+          public async Task<ActionResult> Index()
           {
-               return View(_filmService.GetFilm());
+               var data = await _fileService.Read();
+
+               return View(data);
           }
+          // public ActionResult Index()
+          // {
+
+          //      return View(_filmService.GetFilm());
+          // }
 
           // GET: FilmController/Details/5
           public ActionResult Details(int judul)
@@ -63,7 +72,8 @@ namespace AspNetFilmApp.Controllers
           // GET: FilmController/Create
           public ActionResult Create()
           {
-               return View(new FilmViewModel("The Batman", "Matt Reeves", "Robert Pattinson, Zoe Kravitz, Andy Serkis, Colin Farrell, Paul Dano, Amber Sienna, Jeffrey Wright, Barry Keoghan, Peter Sarsgaard", "Di tahun kedua memerangi kejahatan, Batman mengungkap korupsi besar di Gotham City yang menghubungkan keluarganya sendiri dan menghadapi pembunuh berantai yang dikenal sebagai Riddler.", "176", "R+13", "Action, Crime, Drama"){
+               return View(new FilmViewModel("The Batman", "Matt Reeves", "Robert Pattinson, Zoe Kravitz, Andy Serkis, Colin Farrell, Paul Dano, Amber Sienna, Jeffrey Wright, Barry Keoghan, Peter Sarsgaard", "Di tahun kedua memerangi kejahatan, Batman mengungkap korupsi besar di Gotham City yang menghubungkan keluarganya sendiri dan menghadapi pembunuh berantai yang dikenal sebagai Riddler.", "176", "R+13", "Action, Crime, Drama")
+               {
                     LinkImg = "https://media.21cineplex.com/webcontent/gallery/pictures/164489949235572_287x421.jpg",
                     LinkTrailer = "https://www.youtube.com/embed/mqqft2x_Aa4",
                     TglTayang = new DateTime(2022, 03, 25)
@@ -73,7 +83,7 @@ namespace AspNetFilmApp.Controllers
           // POST: FilmController/Create
           [HttpPost]
           [ValidateAntiForgeryToken]
-          public ActionResult Create(FilmViewModel collection)
+          public async Task<ActionResult> Create(FilmViewModel collection)
           {
                if (!ModelState.IsValid)
                {
@@ -82,6 +92,7 @@ namespace AspNetFilmApp.Controllers
 
                try
                {
+                    await _fileService.Write(collection);
                     return RedirectToAction(nameof(Index));
                }
                catch

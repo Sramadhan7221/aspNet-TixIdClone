@@ -13,10 +13,14 @@ public class FilmViewModel
      public string Aktor { get; set; }
      public string Sinopsis { get; set; }
      public string Durasi { get; set; }
+     [DisplayName("Rating Umur")]
      public string RatingUsia { get; set; }
+     [DisplayName("Poster")]
      public string LinkImg { get; set; }
      public float _rating { get; set; }
+     [DisplayName("Link Trailer")]
      public string LinkTrailer { get; set; }
+     [DisplayName("Tanggal Tayang")]
      public DateTime TglTayang { get; set; }
      public FilmViewModel()
      {

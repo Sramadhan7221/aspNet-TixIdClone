@@ -1,14 +1,68 @@
 ﻿@model IEnumerable<AspNetFilmApp.Models.FilmViewModel>
 @{
     DateTime today = new DateTime(2022, 03, 23);
+    int indexCarosel = 0;
+    Layout = "_LayoutHome";
 }
-<h3 class="card-header text-center my-3">Tayang Hari Ini</h3>
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-    @foreach (var item in Model)
-    {
-        @if (item.TglTayang == today)
+
+
+
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        @foreach (var item in Model)
         {
-            <div class="col">
+            @if (item.TglTayang == today)
+            {
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="@indexCarosel" class="indikator"></li>
+            }
+            indexCarosel = +1;
+        }
+    </ol>
+    <div class="carousel-inner">
+        @foreach (var item in Model)
+        {
+            @if (item.TglTayang == today)
+            {
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="col-lg-11 mb-0 d-flex">
+                                <div class="mx-auto col-md-6 col-sm-10 order-lg-last justify-items-center">
+                                    <a href="/home/detail/@item.Judul">
+                                        <img src="@item.LinkImg" class="card-img-top" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
+        role="button" data-bs-slide="prev">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
+        role="button" data-bs-slide="next">
+        <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
+<!-- End Banner Hero -->
+
+
+<!-- Start Categories of The Month -->
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <h1 class="h1">Daftar Film Populer</h1>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="/home/detail/@item.Judul">
                     <div class="card">
                         <img src="@item.LinkImg" class="card-img-top" alt="...">
@@ -19,21 +73,49 @@
                 </a>
             </div>
         }
-    }
-</div>
-<h3 class="card-header my-2">Daftar Film</h3>
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-    @foreach (var item in Model)
-    {
-        <div class="col">
-            <a href="/home/detail/@item.Judul">
-                <div class="card">
-                    <img src="@item.LinkImg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">@item.Judul</h3>
-                    </div>
-                </div>
-            </a>
+    </div>
+</section>
+<!-- End Categories of The Month -->
+
+
+<!-- Start Featured Product -->
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row text-center py-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Daftar Film</h1>
+            </div>
         </div>
-    }
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-md-4 mb-4">
+                    <a href="/home/detail/@item.Judul">
+                        <div class="card h-100">
+                            <img src="@item.LinkImg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                    @* <li class="text-muted text-right">$240.00</li> *@
+                                </ul>
+                                <a href="shop-single.html" class="h2 text-decoration-none text-dark">@item.Judul</a>
+                                <p class="card-text">
+                                    @item.Genre
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- End Featured Product -->
+
 </div>

@@ -2,85 +2,87 @@
 
 @{
      ViewData["Title"] = "Index";
+     Layout = "_LayoutHome";
 }
 
-<h1>Index</h1>
+<h1>Admin</h1>
 
-<p>
-     <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-     <thead>
-          <tr>
-               <th>
-                    @Html.DisplayNameFor(model => model.Judul)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.Sutradara)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.Aktor)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.Sinopsis)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.Durasi)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.RatingUsia)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.Genre)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.LinkImg)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.LinkTrailer)
-               </th>
-               <th>
-                    @Html.DisplayNameFor(model => model.LinkTrailer)
-               </th>
-               <th></th>
-          </tr>
-     </thead>
-     <tbody>
-          @foreach (var item in Model)
-          {
+<div class="m-2">
+     <button type="button" class="btn btn-primary" asp-action="Create"> Create New </button>
+</div>
+
+<div class="table-responsive">
+     <table class="table align-middle">
+          <thead>
                <tr>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Judul)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Sutradara)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Aktor)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Sinopsis)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Durasi)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.RatingUsia)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.Genre)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.LinkImg)
                     </th>
-                    <th>
+                    <th class="text-center">
                          @Html.DisplayNameFor(model => model.LinkTrailer)
                     </th>
-                    <th>
-                         @Html.DisplayNameFor(model => model.LinkTrailer)
+                    <th class="text-center">
+                         @Html.DisplayNameFor(model => model.TglTayang)
                     </th>
-                    <th></th>
                </tr>
-          }
-     </tbody>
-</table>
+          </thead>
+          <tbody>
+               @foreach (var item in Model)
+               {
+                    <tr>
+                         <th>
+                              <p class="text-center">@item.Judul</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.Sutradara</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.Aktor</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.Sinopsis</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.Durasi</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.RatingUsia</p>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.Genre</p>
+                         </th>
+                         <th>
+                              <img src="@item.LinkImg" width="150">
+                         </th>
+                         <th>
+                              <i class="text-center">@item.LinkTrailer</i>
+                         </th>
+                         <th>
+                              <p class="text-center">@item.TglTayang</p>
+                         </th>
+                    </tr>
+               }
+          </tbody>
+     </table>
+</div>

@@ -10,7 +10,7 @@ class Film
      public string Durasi { get; set; }
      public string RatingUsia { get; set; }
      public string LinkImg { get; set; }
-     private float _rating { get; set; }
+     public float _rating { get; set; }
      public string LinkTrailer { get; set; }
      public DateTime TglTayang { get; set; }
 
